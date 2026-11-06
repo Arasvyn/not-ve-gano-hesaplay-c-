@@ -1,0 +1,23 @@
+# AI Sohbet Günlüğü / Web Uygulaması Proje Bağlamı
+# Proje: AKTS & GANO Not Hesaplayıcı (ECTS & GPA Calculator)
+
+[PROJE ÖZETİ]
+- Uygulama: Üniversite öğrencileri için AKTS ağırlıklı GANO ve dönem sonu başarı notu hesaplayıcı.
+- Hedef Kullanıcı: Üniversite öğrencileri / Akademik not hesaplama aracı.
+- Mimari: Saf Ön Yüz (HTML5, CSS3, JavaScript ES6). Harici veritabanı yok, istemci taraflı (client-side) çalışma.
+
+[TASARIM VE SÜRÜM AŞAMALARI]
+1. v1: Koyu tema (#0f172a / #1e293b) ile temel işlevsel prototip.
+2. v2: Açık/beyaz temaya geçiş, blurlu akademik arka plan görseli ve şeffaf cam (glassmorphism) konteyneri.
+3. v3: Görsel estetiği artırılmış arka plan resmi ve yenilenmiş tablo düzeni.
+4. v4: Glassmorphism şeffaflık kalibrasyonu (arka plan resminin görünürlüğünü artırmak için renk perdesi saydamlaştırıldı).
+5. v5 (Son Sürüm): Kapsam güncellemesi - "Gerekli Final Notu Hesaplama" modelinden "Vize + Final + AKTS -> GANO ve Geçti/Kaldı Durumu" modeline geçiş.
+
+[DOSYA YAPISI VE UYGULAMA DETAYLARI]
+- index.html : Anlamsal HTML5 yapısı, dinamik tablo (#courseTable), butonlar ve sonuç alanı.
+- style.css  : Glassmorphism tasarım, CSS değişkenleri, duyarlı (responsive) düzen, Unsplash blurlu kütüphane görseli.
+- script.js : Saf JavaScript mantığı. Dinamik satır ekleme/silme (addCourseRow, removeRow), başarı notu formülü ((vize * vizeWeight) + (final * finalWeight)), 4.00'lük GANO dönüştürme ((avgScore / 25)) ve geçti/kaldı denetimi.
+- README.md  : Proje tanıtımı ve GitHub Pages canlıya alma kılavuzu.
+
+[ÇIKTI BİLGİLERİ]
+- Tek parça HTML dosyası: gano hesaplayıcı.html
