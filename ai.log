@@ -1,23 +1,65 @@
-# AI Sohbet Günlüğü / Web Uygulaması Proje Bağlamı
-# Proje: AKTS & GANO Not Hesaplayıcı (ECTS & GPA Calculator)
+# AI Proje Günlüğü ve Hikayesi (ai.log)
 
-[PROJE ÖZETİ]
-- Uygulama: Üniversite öğrencileri için AKTS ağırlıklı GANO ve dönem sonu başarı notu hesaplayıcı.
-- Hedef Kullanıcı: Üniversite öğrencileri / Akademik not hesaplama aracı.
-- Mimari: Saf Ön Yüz (HTML5, CSS3, JavaScript ES6). Harici veritabanı yok, istemci taraflı (client-side) çalışma.
+# Proje Adı: AKTS & GANO Not Hesaplayıcı
 
-[TASARIM VE SÜRÜM AŞAMALARI]
-1. v1: Koyu tema (#0f172a / #1e293b) ile temel işlevsel prototip.
-2. v2: Açık/beyaz temaya geçiş, blurlu akademik arka plan görseli ve şeffaf cam (glassmorphism) konteyneri.
-3. v3: Görsel estetiği artırılmış arka plan resmi ve yenilenmiş tablo düzeni.
-4. v4: Glassmorphism şeffaflık kalibrasyonu (arka plan resminin görünürlüğünü artırmak için renk perdesi saydamlaştırıldı).
-5. v5 (Son Sürüm): Kapsam güncellemesi - "Gerekli Final Notu Hesaplama" modelinden "Vize + Final + AKTS -> GANO ve Geçti/Kaldı Durumu" modeline geçiş.
+---
 
-[DOSYA YAPISI VE UYGULAMA DETAYLARI]
-- index.html : Anlamsal HTML5 yapısı, dinamik tablo (#courseTable), butonlar ve sonuç alanı.
-- style.css  : Glassmorphism tasarım, CSS değişkenleri, duyarlı (responsive) düzen, Unsplash blurlu kütüphane görseli.
-- script.js : Saf JavaScript mantığı. Dinamik satır ekleme/silme (addCourseRow, removeRow), başarı notu formülü ((vize * vizeWeight) + (final * finalWeight)), 4.00'lük GANO dönüştürme ((avgScore / 25)) ve geçti/kaldı denetimi.
-- README.md  : Proje tanıtımı ve GitHub Pages canlıya alma kılavuzu.
+## 1. NEDEN BU PROJEYİ YAPTIM? (AMACIM VE VİZYONUM)
 
-[ÇIKTI BİLGİLERİ]
-- Tek parça HTML dosyası: gano hesaplayıcı.html
+Üniversite öğrencilerinin dönem sonlarında en çok zorlandığı konulardan biri, farklı vize/final oranları ve AKTS kredileriyle dönem ortalamasını (GANO) hesaplamaktır. 
+
+Bu projeyi geliştirirken temel amacım şunlardı:
+* **Hızlı ve Kolay Kullanım:** Karmaşık sistemlere girmeden, üye olmadan ve indirme yapmadan herkesin tarayıcıdan anında erişebileceği bir araç sunmak.
+* **Şık ve Modern Arayüz:** Göze hoş gelen, akademik ruha uygun, gözü yormayan şeffaf cam (Glassmorphism) tasarımına sahip bir site oluşturmak.
+* **Net Sonuçlar:** Sadece ortalamayı değil; ders bazında kalınan veya geçilen dersleri tek ekranda açıkça göstermek.
+
+---
+
+## 2. GELİŞTİRME SÜRECİNDE NELERE DİKKAT ETTİM VE NELERİ DÜZELTTİM?
+
+Proje tek seferde değil, adım adım gelen geri bildirimler ve ihtiyaçlar doğrultusunda şekillendi:
+
+* **Sürüm 1.0 (Koyu Tema İlk Tasarım):**
+  * *Ne Yapıldı:* Fonksiyonel olarak çalışan koyu temalı bir hesaplayıcı yapıldı.
+  * *Neden Değişti:* Koyu tema akademik bir araç için biraz kasvetli bulundu.
+
+* **Sürüm 2.0 & 3.0 (Açık Tema ve Görsel Denemeleri):**
+  * *Ne Yapıldı:* Tasarım ferah beyaz tonlara çevrildi ve arka plana blurlu bir kütüphane görseli eklendi.
+  * *Neden Değişti:* Arka plandaki beyaz perde fazla opaktı, görsel yeterince hissedilmiyordu.
+
+* **Sürüm 4.0 (Glassmorphism İyileştirmesi):**
+  * *Ne Yapıldı:* Arka planın beyaz perdesi saydamlaştırıldı. Böylece öndeki beyaz kutu arka plandaki kütüphane resmini şeffaf bir cam gibi gösterdi.
+
+* **Sürüm 5.0 (MANTIKSAL DÜZELTME - FİNAL SÜRÜMÜ):**
+  * *Düzeltilen Önemli Sorun:* İlk başta sistem sadece "Geçmek için finalden kaç almalıyım?" sorusuna odaklanmıştı ve Final Notu girişi yoktu.
+  * *Çözüm:* Kullanıcı deneyimini güçlendirmek için tabloya doğrudan **Final Notu** sütunu eklendi. Böylece kullanıcı hem vize hem final notunu girip anında GANO ortalamasını ve ders geçme durumunu görebilir hale geldi.
+
+---
+
+## 3. PROJEDE KULLANILAN TEKNOLOJİLER
+
+* **HTML5:** Sayfanın yapısı, ders ekleme/silme tablosu ve form alanları.
+* **CSS3:** Şeffaf cam (Glassmorphism) efekti, blurlu arka plan görseli ve modern buton stilleri.
+* **JavaScript (ES6):** Dinamik ders satırı ekleme/silme işlemleri ve otomatik GANO/not hesaplama algoritması.
+
+---
+
+## 4. HESAPLAMA MANTIĞI
+
+1. **Ders Başarı Notu:** 
+   * `(Vize Notu × Vize Yüzdesi) + (Final Notu × Final Yüzdesi)`
+2. **Geçti / Kaldı Durumu:**
+   * Ders Notu 50 ve üzeri, Final Notu da 50 ve üzeri ise **Geçti**, aksi halde **Kaldı** kabul edilir.
+3. **GANO (4.00'lük Sistem):**
+   * Ders notları AKTS kredileriyle çarpılarak toplam ağırlıklı puan bulunur ve toplam AKTS'ye bölünür. Çıkan 100'lük ortalama 4'lük sisteme çevrilir.
+
+---
+
+## 5. GELECEK HEDEFLERİM (ROADMAP)
+
+- [ ] Üniversitelerin farklı harf notu sistemlerine (AA, BA, BB...) göre hesaplama seçeneği eklemek.
+- [ ] Tarayıcı hafızasını kullanarak derslerin sayfayı kapatınca silinmemesini sağlamak (LocalStorage).
+- [ ] Not dökümünü PDF olarak indirebilme özelliği eklemek.
+
+---
+*Bu belge, yapay zeka destekli yazılım geliştirme sürecini (AI-Assisted Development) ve projenin gelişim hikayesini açıklamak amacıyla oluşturulmuştur.*
