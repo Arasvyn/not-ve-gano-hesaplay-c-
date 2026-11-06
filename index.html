@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AKTS & GANO Not Hesaplayıcı</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="bg-image"></div>
+  <div class="bg-overlay"></div>
+
+  <div class="container">
+    <h1>Dönem Sonu Not & GANO Hesaplayıcı</h1>
+    <p class="subtitle">Vize ve Final notlarınızı girerek ders başarı durumunuzu ve dönem ortalamanızı hesaplayın.</p>
+    
+    <div class="table-responsive">
+      <table id="courseTable">
+        <thead>
+          <tr>
+            <th>Ders Adı</th>
+            <th>Vize Notu</th>
+            <th>Vize Etkisi (%)</th>
+            <th>Final Notu</th>
+            <th>AKTS</th>
+            <th>İşlem</th>
+          </tr>
+        </thead>
+        <tbody id="courseBody">
+          <!-- Dinamik Satırlar -->
+        </tbody>
+      </table>
+    </div>
+
+    <button class="btn btn-add" onclick="addCourseRow()">+ Ders Ekle</button>
+    <button class="btn btn-calc" onclick="calculate()">GANO & Notları Hesapla</button>
+
+    <div class="results" id="resultsSection">
+      <h2>Ders Başarı Durumları</h2>
+      <div id="resultsList"></div>
+      
+      <div class="summary-box">
+        <span>Tahmini Dönem Ortalaması (GANO / 4.00):</span>
+        <span class="gpa-val" id="gpaResult">0.00</span>
+      </div>
+      <div style="text-align: right; font-size: 0.9rem; color: #64748b; margin-top: 4px;" id="score100Result">
+        100'lük Ortalama: 0.0
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
