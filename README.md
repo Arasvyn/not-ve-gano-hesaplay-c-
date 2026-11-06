@@ -1,0 +1,1 @@
+# not-ve-gano-hesaplay-c-
